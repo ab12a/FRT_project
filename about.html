@@ -12,6 +12,7 @@ Future Ready Talent Internship Project by Abhyuday Mahanta
   <link href="//fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
 </head>
 
 <body>
@@ -725,6 +726,44 @@ Future Ready Talent Internship Project by Abhyuday Mahanta
   <!--//MENU-JS-->
 
   <script src="assets/js/bootstrap.min.js"></script>
+  <div id="healthbot" class="webchat-container" style="position: fixed; bottom: 20px; right: 20px; width: 300px; height: 300px;"></div>
+   <!-- Script to initialize the Health Bot -->
+   <script>
+    window.addEventListener('load', function() {
+        const styleOptions = {
+            botAvatarInitials: 'Bot',
+            userAvatarInitials: 'You',
+            hideUploadButton: true
+        };
+
+        const store = window.WebChat.createStore({}, function(store) {
+            return function(next) {
+                return function(action) {
+                    if (action.type === 'DIRECT_LINE/CONNECT_FULFILLED') {
+                        store.dispatch({
+                            type: 'WEB_CHAT/SEND_EVENT',
+                            payload: {
+                                name: 'webchat/join',
+                                value: { language: window.navigator.language }
+                            }
+                        });
+                    }
+                    return next(action);
+                };
+            };
+        });
+
+        window.WebChat.renderWebChat({
+            directLine: window.WebChat.createDirectLine({
+                secret: 'cKXuFI60Rog.g7srhUV4rnpb7h9lpyl0OjGkQdTU6nnTpZ9Hfiaf5R0'
+            }),
+            store,
+            styleOptions
+        }, document.getElementById('healthbot'));
+
+        document.querySelector('#healthbot > *').focus();
+    });
+</script>
 
 </body>
 
