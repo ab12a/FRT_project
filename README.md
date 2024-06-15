@@ -1,5 +1,5 @@
 Future ready talent :Final project.
-#Azure link :   https://happy-coast-0044f6910.5.azurestaticapps.net
+#Azure link :   https://lively-sky-0fcbc0d10.5.azurestaticapps.net
 
 Welcome to the Preventive Medical Website, a responsive and user-friendly platform designed to provide comprehensive information on healthcare facilities at Prventive private limited.
 This project leverages modern web technologies to offer an engaging and informative experience for users seeking to learn about treatment options Doctors and specialists in various fields, and quick
